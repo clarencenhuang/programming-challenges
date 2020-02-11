@@ -10,10 +10,12 @@ def guess_number(n):
         best_guess = math.inf
         for num in range(low, hi+1):
             guesses = []
+            # each guess from this branch represent a scenario that can happen
             if num > low:
                 guesses.append(num + do_guess(low, num - 1))
             if num < hi:
                 guesses.append(num + do_guess(num + 1, hi))
+            # we want to choose the number with the BEST worst case scenario
             best_guess = min(best_guess, max(guesses))
 
         return best_guess

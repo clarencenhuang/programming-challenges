@@ -16,5 +16,6 @@ def sum3zero(numbers):
                 j += 1
     return list(map(list, triplets))
 
+
 if __name__ == '__main__':
     print(sum3zero([-1,0,1,2,-1,-4]))
