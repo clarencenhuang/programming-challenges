@@ -20,15 +20,18 @@ def has_moves_left(b):
 def won(b, player=Player1):
     won_player = '-'
     for i in range(3):
-        if b[i][0] == b[i][1] == b[i][2]:
+        if len(set([b[i][j] for j in range(3)])) == 1:
             won_player = b[i][0]
             break
-        elif b[0][i] == b[1][i] == b[2][i]:
+        if len(set([b[j][i] for j in range(3)])) == 1:
             won_player = b[0][i]
             break
-    if (b[0][0] == b[1][1] == b[2][2] or
-            b[0][2] == b[1][1] == b[2][0]):
-        won_player = b[1][1]
+        if len(set([b[i][i] for i in range(3)])) == 1:
+            won_player = b[i][i]
+            break
+        if len(set([b[i][3-i] for i in range(3)])) == 3:
+            won_player = b[i][3-i]
+            break
     if won_player is '-':
         return 0
     elif won_player == player:
