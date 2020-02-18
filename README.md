@@ -14,6 +14,7 @@ This repo is for my own personal improvement and keeping my coding skills sharp.
 
 - Euler's Totient Theorem for powers and mods
 - Euclidean algorithm
+- Boyer–Moore majority vote algorithm
 
 ### Strings
 
