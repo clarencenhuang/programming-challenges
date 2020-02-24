@@ -1,0 +1,17 @@
+'''
+
+# https://leetcode.com/problems/make-array-strictly-increasing/discuss/378444/O(m-*-n)-C%2B%2B-short-DP-solution-with-detailed-explanation
+
+F[i][j] : min num of replacements if we replace s[i] with t[j]
+G[i] : min number of replacement if we do not replace s[i]
+
+F[i][j] is minimum of:
+	F[i-1][j-1] + 1 If j > 0: if we replaced the last one, we can replace this one because t[j] is in sorted order
+	G[i-1] + 1 if t[j] > s[i-1]: if we don't replace the last one and we can replace this one, do it
+
+G[i] is the minimum of:
+	G[i-1] if s[i] > s[i-1] : we have no need to replace the last one
+	F[i-1][j] if t[j] < s[i]: we can replace the previous one with this j
+
+
+'''
