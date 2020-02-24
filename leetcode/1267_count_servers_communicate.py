@@ -1,5 +1,7 @@
 from collections import defaultdict
 import itertools
+
+
 def count_servers_communicate(grid):
     if len(grid) == 0:
         return 0
@@ -16,6 +18,7 @@ def count_servers_communicate(grid):
         if len(idxes) >= 2:
             results.update(idxes)
     return len(results)
+
 
 if __name__ == '__main__':
     print(count_servers_communicate([[1,0],[1,1]]))
