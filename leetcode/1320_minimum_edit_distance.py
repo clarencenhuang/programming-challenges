@@ -11,11 +11,14 @@ dp_x[i][j] = min of
     dp_x[i-1][j-1] + cost of moving from cost(j-1, j)
     dp_y[k][j-1] + cost of moving from to cost(k-1, j) for each k < i
 
-alternative DP formulation
+Alternative DP formulation
 
 
 dp[i][j] = min cost of having finger on i and j, left being i and right being j
-dp[i][j] = 
+dp[i][j] = min( dp[i][j_prev] + cost(j_prev, j), dp[i_prev][j] + cost(i_prev, i)) i_prev  = set of all letters before this
+
+start at dp[-1][-1] = 0
+cost(-1, x) = 0
 
 '''
 import math
