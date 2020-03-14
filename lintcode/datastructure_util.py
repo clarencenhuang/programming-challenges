@@ -1,6 +1,33 @@
 from functools import reduce
 
 
+class TreeNode:
+
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left, self.right = left, right
+
+    def __repr__(self):
+        queue = [self]
+        arr = []
+        while queue:
+            node = queue.pop(0)
+            arr.append(node)
+            if node:
+                queue.append(node.left)
+                queue.append(node.right)
+        i = -1
+        while arr[i] is None:
+            i -= 1
+        res = []
+        for k in arr[:i + 1]:
+            if k is not None:
+                res.append(k.val)
+            else:
+                res.append(None)
+        return repr(res)
+
+
 class RandomListNode:
 
     def __init__(self, x, next=None, random=None):
@@ -40,10 +67,4 @@ class ListNode:
         ls = list(map(int, parts))
         return ListNode.create_from_array(ls)
 
-
-class TreeNode:
-
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left, self.right = left, right
 
